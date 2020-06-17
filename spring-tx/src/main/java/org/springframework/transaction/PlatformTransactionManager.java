@@ -54,11 +54,14 @@ public interface PlatformTransactionManager extends TransactionManager {
 	/**
 	 * Return a currently active transaction or create a new one, according to
 	 * the specified propagation behavior.
+	 * 根据指定的传播行为返回当前活动的事务或创建新事务。
 	 * <p>Note that parameters like isolation level or timeout will only be applied
 	 * to new transactions, and thus be ignored when participating in active ones.
+	 * 请注意，隔离级别或超时等参数将仅应用于新事务，因此在参与正在活动事务时将被忽略。
 	 * <p>Furthermore, not all transaction definition settings will be supported
 	 * by every transaction manager: A proper transaction manager implementation
 	 * should throw an exception when unsupported settings are encountered.
+	 * 此外，并非每个事务管理器都支持所有事务定义设置：当遇到不支持的设置时，正确的事务管理器抛出异常。
 	 * <p>An exception to the above rule is the read-only flag, which should be
 	 * ignored if no explicit read-only mode is supported. Essentially, the
 	 * read-only flag is just a hint for potential optimization.
