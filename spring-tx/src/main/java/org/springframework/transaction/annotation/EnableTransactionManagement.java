@@ -28,9 +28,12 @@ import org.springframework.core.Ordered;
 
 /**
  * Enables Spring's annotation-driven transaction management capability, similar to
- * the support found in Spring's {@code <tx:*>} XML namespace. To be used on
+ * the support found in Spring's {@code <tx:*>} XML namespace.
+ * 启用Spring的注释驱动事务管理功能,类似Spring XML配置中<tx:*>标签的作用
+ * To be used on
  * {@link org.springframework.context.annotation.Configuration @Configuration}
  * classes as follows:
+ * 用在Configuration注解的类上，例如下面的例子：
  *
  * <pre class="code">
  * &#064;Configuration
@@ -56,6 +59,7 @@ import org.springframework.core.Ordered;
  *
  * <p>For reference, the example above can be compared to the following Spring XML
  * configuration:
+ * 作为参考，上面的示例可以与下面的Spring XML配置进行比较
  *
  * <pre class="code">
  * &lt;beans&gt;
@@ -77,24 +81,33 @@ import org.springframework.core.Ordered;
  *
  * In both of the scenarios above, {@code @EnableTransactionManagement} and {@code
  * <tx:annotation-driven/>} are responsible for registering the necessary Spring
- * components that power annotation-driven transaction management, such as the
- * TransactionInterceptor and the proxy- or AspectJ-based advice that weave the
+ * components that power annotation-driven transaction management,
+ * 在上述两种情况下@EnableTransactionManagement和<tx:annotation-driven/>都负责注册必要的Spring组件，这些组件支持注释驱动的事务管理
+ * such as the TransactionInterceptor and the proxy- or AspectJ-based advice that weave the
  * interceptor into the call stack when {@code JdbcFooRepository}'s {@code @Transactional}
  * methods are invoked.
+ * 例如TransactionInterceptor和基于代理或AspectJ的adivce,当JdbcFooRepository的@Transactional方法被调用时，将interceptor织入
  *
  * <p>A minor difference between the two examples lies in the naming of the {@code
- * PlatformTransactionManager} bean: In the {@code @Bean} case, the name is
- * <em>"txManager"</em> (per the name of the method); in the XML case, the name is
- * <em>"transactionManager"</em>. The {@code <tx:annotation-driven/>} is hard-wired to
- * look for a bean named "transactionManager" by default, however
- * {@code @EnableTransactionManagement} is more flexible; it will fall back to a by-type
- * lookup for any {@code PlatformTransactionManager} bean in the container. Thus the name
- * can be "txManager", "transactionManager", or "tm": it simply does not matter.
+ * PlatformTransactionManager} bean:
+ * 这两个示例之间的一个小区别在于命名PlatformTransactionManager的Bean
+ * In the {@code @Bean} case, the name is <em>"txManager"</em> (per the name of the method);
+ * in the XML case, the name is <em>"transactionManager"</em>.
+ * 在代码里，PlatformTransactionManager的Bean名字是txManager，在XML里Bean名字是transactionManager
+ * The {@code <tx:annotation-driven/>} is hard-wired to look for a bean named "transactionManager" by default, however
+ * {@code @EnableTransactionManagement} is more flexible;
+ * <tx:annotation-driven/>默认情况下是去找名为"transactionManager"的Bean，@EnableTransactionManagement则更加灵活
+ * it will fall back to a by-type lookup for any {@code PlatformTransactionManager} bean in the container.
+ * 它将按类型查找，返回到容器中任何{PlatformTransactionManager}的bean。
+ * Thus the name can be "txManager", "transactionManager", or "tm": it simply does not matter.
+ * 因此，名称可以是“txManager”、“transactionManager”或“tm”：这无关紧要。
  *
  * <p>For those that wish to establish a more direct relationship between
  * {@code @EnableTransactionManagement} and the exact transaction manager bean to be used,
+ * 对于那些想将EnableTransactionManagement和要使用的确切的事务管理器建立一个更直接关系
  * the {@link TransactionManagementConfigurer} callback interface may be implemented -
  * notice the {@code implements} clause and the {@code @Override}-annotated method below:
+ * TransactionManagementConfigurer回调接口已经实现，注意@Override注解的实现方法
  *
  * <pre class="code">
  * &#064;Configuration
