@@ -83,19 +83,26 @@ public interface PlatformTransactionManager extends TransactionManager {
 	/**
 	 * Commit the given transaction, with regard to its status. If the transaction
 	 * has been marked rollback-only programmatically, perform a rollback.
+	 * 根据状态提交给定的事务。如果事务以编程方式标记为回滚，请执行回滚。
 	 * <p>If the transaction wasn't a new one, omit the commit for proper
-	 * participation in the surrounding transaction. If a previous transaction
-	 * has been suspended to be able to create a new one, resume the previous
+	 * participation in the surrounding transaction.
+	 * 如果当前事务不是一个新的事务，则省略提交事务内的正确行为
+	 * If a previous transaction has been suspended to be able to create a new one, resume the previous
 	 * transaction after committing the new one.
+	 * 如果一个为了开启一个新事务而挂起当前事务，请在提交新事务之后恢复上一个事务
 	 * <p>Note that when the commit call completes, no matter if normally or
 	 * throwing an exception, the transaction must be fully completed and
 	 * cleaned up. No rollback call should be expected in such a case.
+	 * 请注意，当提交调用完成时，无论是正常调用还是引发异常，事务都必须完全完成并清理。在这种情况下，不应进行回滚调用。
 	 * <p>If this method throws an exception other than a TransactionException,
 	 * then some before-commit error caused the commit attempt to fail. For
 	 * example, an O/R Mapping tool might have tried to flush changes to the
 	 * database right before commit, with the resulting DataAccessException
 	 * causing the transaction to fail. The original exception will be
 	 * propagated to the caller of this commit method in such a case.
+	 * 如果此方法引发TransactionException以外的异常，则提交前的某些错误会导致提交尝试失败。
+	 * 例如，O/R映射工具可能在提交之前尝试刷新对数据库的更改，结果导致DataAccessException导致事务失败。
+	 * 在这种情况下，原始异常将传播到此提交方法的调用方。
 	 * @param status object returned by the {@code getTransaction} method
 	 * @throws UnexpectedRollbackException in case of an unexpected rollback
 	 * that the transaction coordinator initiated
