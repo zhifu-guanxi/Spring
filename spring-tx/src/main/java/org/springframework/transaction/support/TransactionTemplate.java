@@ -81,8 +81,10 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 
 	/**
 	 * Construct a new TransactionTemplate for bean usage.
+	 * 为bean的使用构造一个新的事务模板。
 	 * <p>Note: The PlatformTransactionManager needs to be set before
 	 * any {@code execute} calls.
+	 * 注意：需要在任何{@code execute}调用之前设置PlatformTransactionManager。
 	 * @see #setTransactionManager
 	 */
 	public TransactionTemplate() {
@@ -90,7 +92,8 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 
 	/**
 	 * Construct a new TransactionTemplate using the given transaction manager.
-	 * @param transactionManager the transaction management strategy to be used
+	 * 使用给定的事务管理器构造新的TransactionTemplate。
+	 * @param transactionManager the transaction management strategy to be used 要使用的事务管理策略
 	 */
 	public TransactionTemplate(PlatformTransactionManager transactionManager) {
 		this.transactionManager = transactionManager;
@@ -99,9 +102,11 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 	/**
 	 * Construct a new TransactionTemplate using the given transaction manager,
 	 * taking its default settings from the given transaction definition.
-	 * @param transactionManager the transaction management strategy to be used
+	 * 使用给定的事务管理器，从给定的事务定义中获取其默认设置，构造一个新的TransactionTemplate。
+	 * @param transactionManager the transaction management strategy to be used 要使用的事务管理策略
 	 * @param transactionDefinition the transaction definition to copy the
 	 * default settings from. Local properties can still be set to change values.
+	 * 要从中复制默认设置的事务定义。本地属性仍然可以设置为更改值。
 	 */
 	public TransactionTemplate(PlatformTransactionManager transactionManager, TransactionDefinition transactionDefinition) {
 		super(transactionDefinition);
@@ -111,6 +116,7 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 
 	/**
 	 * Set the transaction management strategy to be used.
+	 * 设置要使用的事务管理策略。
 	 */
 	public void setTransactionManager(@Nullable PlatformTransactionManager transactionManager) {
 		this.transactionManager = transactionManager;
@@ -118,6 +124,7 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 
 	/**
 	 * Return the transaction management strategy to be used.
+	 * 返回要使用的事务管理策略。
 	 */
 	@Nullable
 	public PlatformTransactionManager getTransactionManager() {
@@ -163,9 +170,10 @@ public class TransactionTemplate extends DefaultTransactionDefinition
 
 	/**
 	 * Perform a rollback, handling rollback exceptions properly.
-	 * @param status object representing the transaction
-	 * @param ex the thrown application exception or error
-	 * @throws TransactionException in case of a rollback error
+	 * 执行回滚，正确处理回滚异常。
+	 * @param status object representing the transaction 表示事务的对象
+	 * @param ex the thrown application exception or error 引发的应用程序异常或错误
+	 * @throws TransactionException in case of a rollback error 如果发生回滚错误
 	 */
 	private void rollbackOnException(TransactionStatus status, Throwable ex) throws TransactionException {
 		Assert.state(this.transactionManager != null, "No PlatformTransactionManager set");
