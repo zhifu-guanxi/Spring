@@ -25,7 +25,9 @@ import java.lang.annotation.Target;
 /**
  * Enables support for handling components marked with AspectJ's {@code @Aspect} annotation,
  * similar to functionality found in Spring's {@code <aop:aspectj-autoproxy>} XML element.
+ * 支持处理用AspectJ的{@code@Aspect}批注标记的组件，类似于Spring的{@代码中的功能<aop:aspectj自动代理>}XML元素。
  * To be used on @{@link Configuration} classes as follows:
+ * 在@{@link Configuration}类上使用，如下所示：
  *
  * <pre class="code">
  * &#064;Configuration
