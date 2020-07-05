@@ -67,10 +67,14 @@ import java.lang.annotation.Target;
  * In the scenario above, {@code @EnableAspectJAutoProxy} ensures that {@code MyAspect}
  * will be properly processed and that {@code FooService} will be proxied mixing in the
  * advice that it contributes.
+ * 在上面的场景中，{@code@enablespectjautoproxy}确保{@code MyAspect}得到正确处理，
+ * 并且{@code FooService}将与它所提供的advice混合在一起。
  *
  * <p>Users can control the type of proxy that gets created for {@code FooService} using
  * the {@link #proxyTargetClass()} attribute. The following enables CGLIB-style 'subclass'
  * proxies as opposed to the default interface-based JDK proxy approach.
+ * 用户可以使用{@link\#proxyTargetClass（）}属性控制为{@CodeFooService}创建的代理类型。
+ * 下面将启用CGLIB样式的“子类”代理，而不是默认的基于接口的JDK代理方法。
  *
  * <pre class="code">
  * &#064;Configuration
@@ -80,7 +84,9 @@ import java.lang.annotation.Target;
  * }</pre>
  *
  * <p>Note that {@code @Aspect} beans may be component-scanned like any other.
+ * 注意，{@code@Aspect}bean可以像其他任何bean一样进行组件扫描
  * Simply mark the aspect with both {@code @Aspect} and {@code @Component}:
+ * 只需同时使用{@code@aspect}和{@code@Component}标记方面：
  *
  * <pre class="code">
  * package com.foo;
@@ -104,14 +110,19 @@ import java.lang.annotation.Target;
  * }</pre>
  *
  * <b>Note: {@code @EnableAspectJAutoProxy} applies to its local application context only,
- * allowing for selective proxying of beans at different levels.</b> Please redeclare
- * {@code @EnableAspectJAutoProxy} in each individual context, e.g. the common root web
+ * allowing for selective proxying of beans at different levels.
+ * 注意：{@code@enablespectjautoproxy}仅适用于其本地应用程序上下文，允许在不同级别选择性地代理bean。
+ * </b> Please redeclare {@code @EnableAspectJAutoProxy} in each individual context, e.g. the common root web
  * application context and any separate {@code DispatcherServlet} application contexts,
  * if you need to apply its behavior at multiple levels.
+ * 如果需要在多个级别应用其行为，请在每个单独的上下文中重新声明{@code@enablespectjautoproxy}，
+ * 例如公共根web应用程序上下文和任何单独的{@code DispatcherServlet}应用程序上下文。
  *
  * <p>This feature requires the presence of {@code aspectjweaver} on the classpath.
  * While that dependency is optional for {@code spring-aop} in general, it is required
  * for {@code @EnableAspectJAutoProxy} and its underlying facilities.
+ * 这个特性需要在类路径上存在{@code aspectjweaver}。
+ * 虽然该依赖关系通常对{@codespringaop}是可选的，但是{@code@enablespectjautoproxy}及其底层设施是必需的。
  *
  * @author Chris Beams
  * @author Juergen Hoeller
@@ -127,6 +138,7 @@ public @interface EnableAspectJAutoProxy {
 	/**
 	 * Indicate whether subclass-based (CGLIB) proxies are to be created as opposed
 	 * to standard Java interface-based proxies. The default is {@code false}.
+	 * 指示是否创建基于子类（CGLIB）的代理，而不是标准的基于Java接口的代理。默认值是{@code false}。
 	 */
 	boolean proxyTargetClass() default false;
 
@@ -134,6 +146,8 @@ public @interface EnableAspectJAutoProxy {
 	 * Indicate that the proxy should be exposed by the AOP framework as a {@code ThreadLocal}
 	 * for retrieval via the {@link org.springframework.aop.framework.AopContext} class.
 	 * Off by default, i.e. no guarantees that {@code AopContext} access will work.
+	 * 指示单例应该被AOP框架暴露为一个ThreadLocal，被AopContext类进行检索
+	 * 默认情况下关闭，即不能保证{@codeaopContext}访问可以工作。
 	 * @since 4.3.1
 	 */
 	boolean exposeProxy() default false;
