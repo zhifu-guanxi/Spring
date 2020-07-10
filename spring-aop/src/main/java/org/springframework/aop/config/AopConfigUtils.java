@@ -47,17 +47,20 @@ public abstract class AopConfigUtils {
 
 	/**
 	 * The bean name of the internally managed auto-proxy creator.
+	 * 内部管理的自动代理创建者的bean名称
 	 */
 	public static final String AUTO_PROXY_CREATOR_BEAN_NAME =
 			"org.springframework.aop.config.internalAutoProxyCreator";
 
 	/**
 	 * Stores the auto proxy creator classes in escalation order.
+	 * 按升级顺序存储自动代理创建者类。
 	 */
 	private static final List<Class<?>> APC_PRIORITY_LIST = new ArrayList<>(3);
 
 	static {
 		// Set up the escalation list...
+		// 设置逐步升级列表
 		APC_PRIORITY_LIST.add(InfrastructureAdvisorAutoProxyCreator.class);
 		APC_PRIORITY_LIST.add(AspectJAwareAdvisorAutoProxyCreator.class);
 		APC_PRIORITY_LIST.add(AnnotationAwareAspectJAutoProxyCreator.class);
@@ -124,6 +127,7 @@ public abstract class AopConfigUtils {
 			BeanDefinition apcDefinition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);
 			//若已存在的自动代理创建器与现有的(AnnotationAwareAspectJAutoProxyCreator)不一致，则需要根据优先级来判断到底需要使用哪个
 			if (!cls.getName().equals(apcDefinition.getBeanClassName())) {
+				// 比较两个代理创建器的级别，如果当前级别更低，就升级成新的
 				int currentPriority = findPriorityForClass(apcDefinition.getBeanClassName());
 				int requiredPriority = findPriorityForClass(cls);
 				if (currentPriority < requiredPriority) {
