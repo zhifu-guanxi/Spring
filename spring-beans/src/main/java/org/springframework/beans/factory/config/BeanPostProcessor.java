@@ -22,16 +22,21 @@ import org.springframework.lang.Nullable;
 /**
  * Factory hook that allows for custom modification of new bean instances,
  * e.g. checking for marker interfaces or wrapping them with proxies.
+ * 允许自定义修改新bean实例的Factory钩子，例如检查标记接口或用代理包装它们。
  *
  * <p>ApplicationContexts can autodetect BeanPostProcessor beans in their
  * bean definitions and apply them to any beans subsequently created.
  * Plain bean factories allow for programmatic registration of post-processors,
  * applying to all beans created through this factory.
+ * ApplicationContexts可以在bean定义中自动检测BeanPostProcessor bean，并将它们应用于随后创建的任何bean。
+ * 普通bean工厂允许对后处理器进行编程注册，应用于通过该工厂创建的所有bean。
  *
  * <p>Typically, post-processors that populate beans via marker interfaces
  * or the like will implement {@link #postProcessBeforeInitialization},
  * while post-processors that wrap beans with proxies will normally
  * implement {@link #postProcessAfterInitialization}.
+ * 通常，通过标记接口等填充bean的后处理器将实现{postProcessBeforeInitialization}，
+ * 而使用代理包装bean的后处理器通常将实现{postProcessAfterInitialization}。
  *
  * @author Juergen Hoeller
  * @since 10.10.2003
@@ -47,6 +52,8 @@ public interface BeanPostProcessor {
 	 * initialization callbacks (like InitializingBean's {@code afterPropertiesSet}
 	 * or a custom init-method). The bean will already be populated with property values.
 	 * The returned bean instance may be a wrapper around the original.
+	 * 在任何bean初始化回调（比如initializengbean的{@code afterPropertiesSet}或自定义init方法）之前，
+	 * 将这个BeanPostProcessor应用于给定的新bean实例。这个bean已经被属性值填充了。返回的bean实例可能是原始bean的包装器。
 	 * <p>The default implementation returns the given {@code bean} as-is.
 	 * @param bean the new bean instance
 	 * @param beanName the name of the bean

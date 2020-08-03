@@ -37,14 +37,19 @@ import org.springframework.web.context.ContextLoader;
  * {@link org.springframework.web.context.WebApplicationContext WebApplicationContext}
  * implementation which accepts annotated classes as input - in particular
  * {@link org.springframework.context.annotation.Configuration @Configuration}-annotated
- * classes, but also plain {@link org.springframework.stereotype.Component @Component}
- * classes and JSR-330 compliant classes using {@code javax.inject} annotations. Allows
- * for registering classes one by one (specifying class names as config location) as well
+ * classes,
+ * {WebApplicationContext}实现，它接受带注释的类作为输入，尤其是{@Configuration}注释类
+ * but also plain {@link org.springframework.stereotype.Component @Component}
+ * classes and JSR-330 compliant classes using {@code javax.inject} annotations.
+ * 也可以是普通的{@Component}类和JSR-330兼容的类使用{@javax.inject}注解。
+ * Allows for registering classes one by one (specifying class names as config location) as well
  * as for classpath scanning (specifying base packages as config location).
+ * 允许逐个注册类（将类名指定为配置位置）以及类路径扫描（将基包指定为配置位置）。
  *
  * <p>This is essentially the equivalent of
  * {@link org.springframework.context.annotation.AnnotationConfigApplicationContext
  * AnnotationConfigApplicationContext} for a web environment.
+ * 这实际上相当于web环境的{AnnotationConfigApplicationContext}。
  *
  * <p>To make use of this application context, the
  * {@linkplain ContextLoader#CONTEXT_CLASS_PARAM "contextClass"} context-param for

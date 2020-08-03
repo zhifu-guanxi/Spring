@@ -33,11 +33,16 @@ import java.util.function.Supplier;
  * classes using {@code javax.inject} annotations. Allows for registering classes one by
  * one using {@link #register(Class...)} as well as for classpath scanning using
  * {@link #scan(String...)}.
+ * 独立的应用程序上下文，接受带注释的类作为输入-特别是{@link Configuration@Configuration}-带注释的类，
+ * 但也接受普通的{@linkorg.springframework.stereotype.Component@Component}类型和使用{@code的JSR-330兼容类javax.inject}注解。
+ * 允许使用{@link#register（Class…）}逐个注册类，以及使用{@link#scan（String…）}进行类路径扫描。
  *
  * <p>In case of multiple {@code @Configuration} classes, @{@link Bean} methods defined in
  * later classes will override those defined in earlier classes. This can be leveraged to
  * deliberately override certain bean definitions via an extra {@code @Configuration}
  * class.
+ * 在多个{@code @Configuration}类的情况下，在后面的类中定义的@{@link Bean}方法将覆盖先前类中定义的方法。
+ * 这可以通过一个额外的{@code @Configuration}类故意覆盖某些bean定义。
  *
  * <p>See @{@link Configuration}'s javadoc for usage examples.
  *
@@ -60,6 +65,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	/**
 	 * Create a new AnnotationConfigApplicationContext that needs to be populated
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
+	 * 创建一个新的AnnotationConfigApplicationContext，它需要通过{@link#register}调用填充，然后手动{@linkplain{refresh refresh}。
 	 */
 	public AnnotationConfigApplicationContext() {
 		this.reader = new AnnotatedBeanDefinitionReader(this);
@@ -68,6 +74,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 
 	/**
 	 * Create a new AnnotationConfigApplicationContext with the given DefaultListableBeanFactory.
+	 * 使用给定的DefaultListableBeanFactory创建新的AnnotationConfigApplicationContext。
 	 *
 	 * @param beanFactory the DefaultListableBeanFactory instance to use for this context
 	 */
@@ -156,6 +163,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * Register one or more annotated classes to be processed.
 	 * <p>Note that {@link #refresh()} must be called in order for the context
 	 * to fully process the new classes.
+	 * 注册一个或多个要处理的注解类。请注意，必须调用{@link\#refresh（）}，上下文才能完全处理新类。
 	 *
 	 * @param annotatedClasses one or more annotated classes,
 	 *                         e.g. {@link Configuration @Configuration} classes
@@ -171,6 +179,7 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 	 * Perform a scan within the specified base packages.
 	 * <p>Note that {@link #refresh()} must be called in order for the context
 	 * to fully process the new classes.
+	 * 在指定的基本包中执行扫描。请注意，必须调用{@link\#refresh（）}，上下文才能完全处理新类。
 	 *
 	 * @param basePackages the packages to check for annotated classes
 	 * @see #register(Class...)

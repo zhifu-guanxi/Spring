@@ -35,8 +35,10 @@ import org.springframework.util.Assert;
 
 /**
  * Convenient adapter for programmatic registration of annotated bean classes.
+ * 方便的适配器，用于编程注册带注解的bean类。
  * This is an alternative to {@link ClassPathBeanDefinitionScanner}, applying
  * the same resolution of annotations but for explicitly registered classes only.
+ * 这是{@link ClassPathBeanDefinitionScanner}的替代方法，它应用了相同的注解解决方式，但仅适用于显式注册的类
  *
  * @author Juergen Hoeller
  * @author Chris Beams
@@ -58,9 +60,12 @@ public class AnnotatedBeanDefinitionReader {
 
 	/**
 	 * Create a new {@code AnnotatedBeanDefinitionReader} for the given registry.
+	 * 为给定注册表创建一个新的{AnnotatedBeanDefinitionReader}。
 	 * If the registry is {@link EnvironmentCapable}, e.g. is an {@code ApplicationContext},
 	 * the {@link Environment} will be inherited, otherwise a new
 	 * {@link StandardEnvironment} will be created and used.
+	 * 如果注册表是{@link EnvironmentCapable}，例如是{@code ApplicationContext}，
+	 * 则{@link Environment}将被继承，否则将创建并使用一个新的{@link StandardEnvironment}。
 	 * @param registry the {@code BeanFactory} to load bean definitions into,
 	 * in the form of a {@code BeanDefinitionRegistry}
 	 * @see #AnnotatedBeanDefinitionReader(BeanDefinitionRegistry, Environment)
@@ -127,6 +132,7 @@ public class AnnotatedBeanDefinitionReader {
 	 * Register one or more annotated classes to be processed.
 	 * <p>Calls to {@code register} are idempotent; adding the same
 	 * annotated class more than once has no additional effect.
+	 * 注册一个或多个要处理的注释类。对{@code register}的调用是幂等的；多次添加同一个带注释的类没有其他效果。
 	 * @param annotatedClasses one or more annotated classes,
 	 * e.g. {@link Configuration @Configuration} classes
 	 */
@@ -139,6 +145,7 @@ public class AnnotatedBeanDefinitionReader {
 	/**
 	 * Register a bean from the given bean class, deriving its metadata from
 	 * class-declared annotations.
+	 * 从给定的bean类注册一个bean，从类声明的注释派生其元数据。
 	 * @param annotatedClass the class of the bean
 	 */
 	public void registerBean(Class<?> annotatedClass) {
@@ -200,6 +207,7 @@ public class AnnotatedBeanDefinitionReader {
 	/**
 	 * Register a bean from the given bean class, deriving its metadata from
 	 * class-declared annotations.
+	 * 从给定的bean类注册一个bean，从类声明的注释派生其元数据。
 	 * @param annotatedClass the class of the bean
 	 * @param instanceSupplier a callback for creating an instance of the bean
 	 * (may be {@code null})

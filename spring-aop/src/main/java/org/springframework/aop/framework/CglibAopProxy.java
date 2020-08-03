@@ -331,6 +331,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 		// If the target is a static one and the advice chain is frozen,
 		// then we can make some optimizations by sending the AOP calls
 		// direct to the target using the fixed chain for that method.
+		// 如果目标是静态的，并且建议链被冻结，那么我们可以通过使用该方法的固定链将AOP调用直接发送到目标来进行一些优化。
 		if (isStatic && isFrozen) {
 			Method[] methods = rootClass.getMethods();
 			Callback[] fixedCallbacks = new Callback[methods.length];
@@ -418,6 +419,8 @@ class CglibAopProxy implements AopProxy, Serializable {
 	 * Method interceptor used for static targets with no advice chain. The call
 	 * is passed directly back to the target. Used when the proxy needs to be
 	 * exposed and it can't be determined that the method won't return
+	 * 方法拦截器，用于没有通知链的静态目标。调用直接传递回目标。
+	 * 当代理需要公开并且无法确定方法不会返回时使用
 	 * {@code this}.
 	 */
 	private static class StaticUnadvisedInterceptor implements MethodInterceptor, Serializable {
@@ -441,6 +444,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 	/**
 	 * Method interceptor used for static targets with no advice chain, when the
 	 * proxy is to be exposed.
+	 * 当代理要公开时，用于没有通知链的静态目标的方法拦截器。
 	 */
 	private static class StaticUnadvisedExposedInterceptor implements MethodInterceptor, Serializable {
 
@@ -471,6 +475,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 	 * Interceptor used to invoke a dynamic target without creating a method
 	 * invocation or evaluating an advice chain. (We know there was no advice
 	 * for this method.)
+	 * 拦截器用于在不创建方法调用或评估通知链的情况下调用动态目标。（我们知道没有人建议这种方法。）
 	 */
 	private static class DynamicUnadvisedInterceptor implements MethodInterceptor, Serializable {
 
@@ -499,6 +504,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 
 	/**
 	 * Interceptor for unadvised dynamic targets when the proxy needs exposing.
+	 * 当代理需要暴露时，用于未经警告的动态目标的拦截器。
 	 */
 	private static class DynamicUnadvisedExposedInterceptor implements MethodInterceptor, Serializable {
 
