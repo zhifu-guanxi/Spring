@@ -214,6 +214,7 @@ public class AnnotatedBeanDefinitionReader {
 	 * @param name an explicit name for the bean
 	 * @param qualifiers specific qualifier annotations to consider, if any,
 	 * in addition to qualifiers at the bean class level
+	 * 除了bean类级别的限定符之外，还要考虑的特定限定符注释（如果有）
 	 * @param definitionCustomizers one or more callbacks for customizing the
 	 * factory's {@link BeanDefinition}, e.g. setting a lazy-init or primary flag
 	 * @since 5.0

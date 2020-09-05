@@ -21,6 +21,7 @@ import java.util.Set;
 /**
  * Interface that defines abstract access to the annotations of a specific
  * class, in a form that does not require that class to be loaded yet.
+ * 接口，该接口定义对特定类的注释的抽象访问，其形式不需要加载该类。
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
