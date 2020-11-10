@@ -132,7 +132,6 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 			//为了序列化指定id，如有需要，使得这个BeanFactory从id反序列化到BeanFactory对象
 			beanFactory.setSerializationId(getId());
 			//定制beanFactory，设置相关属性，包括是否允许覆盖同名称的不同定义的对象、是否允许bean之间存在循环依赖
-			// 设置@Autowired和@Qualifier注解解析器QualifierAnnotationAutowireCandidateResolver(这在3.0版本中还是存在的)
 			customizeBeanFactory(beanFactory);
 			//初始化DocumentReader，并进行XML文件读取及解析
 			loadBeanDefinitions(beanFactory);

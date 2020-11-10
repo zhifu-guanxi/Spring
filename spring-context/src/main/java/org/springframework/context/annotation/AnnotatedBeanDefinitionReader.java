@@ -223,6 +223,7 @@ public class AnnotatedBeanDefinitionReader {
 			@Nullable Class<? extends Annotation>[] qualifiers, BeanDefinitionCustomizer... definitionCustomizers) {
 
 		AnnotatedGenericBeanDefinition abd = new AnnotatedGenericBeanDefinition(annotatedClass);
+		// 校验是否需要注册这个bean
 		if (this.conditionEvaluator.shouldSkip(abd.getMetadata())) {
 			return;
 		}
