@@ -150,6 +150,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 	/**
 	 * List of names of manually registered singletons, in registration order.
+	 * 按注册顺序列出手动注册单例的名称。
 	 */
 	private volatile Set<String> manualSingletonNames = new LinkedHashSet<>(16);
 
@@ -883,7 +884,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 		}
 		/*
 		 *	beanDefinitionMap是ConcurrentHashMap类型，且为全局类型，所以会存在并发访问的情况
-		 *	spring5这里已不同于spring3
 		 */
 		BeanDefinition existingDefinition = this.beanDefinitionMap.get(beanName);
 		//处理已经注册过的beanName情况

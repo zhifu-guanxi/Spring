@@ -42,6 +42,7 @@ public interface AnnotatedTypeMetadata {
 	/**
 	 * Determine whether the underlying element has an annotation or meta-annotation
 	 * of the given type defined.
+	 * 确定基础元素是否定义了给定类型的批注或元批注。
 	 * <p>If this method returns {@code true}, then
 	 * {@link #getAnnotationAttributes} will return a non-null Map.
 	 * @param annotationName the fully qualified class name of the annotation

@@ -68,7 +68,9 @@ public class AnnotationBeanNameGenerator implements BeanNameGenerator {
 
 	@Override
 	public String generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) {
+		// 如果是基于注解的BeanDefinition
 		if (definition instanceof AnnotatedBeanDefinition) {
+			// 根据注解中的BeanName决定bean名称
 			String beanName = determineBeanNameFromAnnotation((AnnotatedBeanDefinition) definition);
 			if (StringUtils.hasText(beanName)) {
 				// Explicit bean name found.
@@ -81,6 +83,7 @@ public class AnnotationBeanNameGenerator implements BeanNameGenerator {
 
 	/**
 	 * Derive a bean name from one of the annotations on the class.
+	 * 从类上的一个注释派生bean名称。
 	 * @param annotatedDef the annotation-aware bean definition
 	 * @return the bean name, or {@code null} if none is found
 	 */

@@ -146,6 +146,7 @@ abstract class ConfigurationClassUtils {
 	/**
 	 * Check the given metadata for a full configuration class candidate
 	 * (i.e. a class annotated with {@code @Configuration}).
+	 * 检查给定的元数据以获取完整的配置类候选，例如@Configuration注释的类
 	 * @param metadata the metadata of the annotated class
 	 * @return {@code true} if the given class is to be processed as a full
 	 * configuration class, including cross-method call interception
@@ -158,6 +159,7 @@ abstract class ConfigurationClassUtils {
 	 * Check the given metadata for a lite configuration class candidate
 	 * (e.g. a class annotated with {@code @Component} or just having
 	 * {@code @Import} declarations or {@code @Bean methods}).
+	 * 检查给定的元数据来查找简单的配置类作为候选例如@Component注释的类、@Import的声明或@Bean的方法
 	 * @param metadata the metadata of the annotated class
 	 * @return {@code true} if the given class is to be processed as a lite
 	 * configuration class, just registering it and scanning it for {@code @Bean} methods

@@ -977,6 +977,7 @@ public abstract class AnnotationUtils {
 	/**
 	 * Determine if the {@link Annotation} with the supplied name is defined
 	 * in the core JDK {@code java.lang.annotation} package.
+	 * 确定是否在核心JDK代码java.lang.annotation包中是否定义了具有所提供名称的{@link Annotation}}
 	 * @param annotationType the name of the annotation type to check
 	 * @return {@code true} if the annotation is in the {@code java.lang.annotation} package
 	 * @since 4.2

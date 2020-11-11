@@ -25,7 +25,9 @@ import org.springframework.util.StringUtils;
 
 /**
  * Holder for a BeanDefinition with name and aliases.
+ * 持有一个BeanDefinition的引用和名字
  * Can be registered as a placeholder for an inner bean.
+ * 可以注册为内部bean的占位符。
  *
  * <p>Can also be used for programmatic registration of inner bean
  * definitions. If you don't care about BeanNameAware and the like,
